@@ -39,5 +39,14 @@
 ### サーバサイド
 - node.js/expressで、apiとして実装
 
+```sh
+$ touch .env
+$ npm run server
+```
+
 ### フロントエンド
 - React+Chakra ui
+
+```sh
+$ npm run start
+```
