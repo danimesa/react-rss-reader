@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# RSSリーダーコンポーネント実装
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 要件確認
+### 以下の要件を確認、実装仕様を検討
+- RSS 2.0形式のRSSのURLを読み込んで指定件数表示するRSSリーダーコンポーネントを React/Vue.js/Angularのいずれかで作成
+- サーバーサイド言語は不問
+- RSS 2.0形式のRSSのURLを読み込む
+- 画面仕様
+  - RSSタイトル
+    - サイトへのリンク
+  - 記事
+    - 記事タイトル
+      - 記事へのリンク
+    - author
+    - 日時
+    - 記事詳細
+      - 長い場合一部表示
+      - 記事詳細にHTMLが入っている場合はテキスト部分のみを表示する
+- RSS 2.0にのみ対応
+  - [TechCrunch Japan](https://jp.techcrunch.com/) のRSSフィードを表示できればOK
+- コンポーネントの属性としてRSSのURLと最大表示件数を設定可能
+- その他
+  - お好きなUIフレームワークを使用してください。採用したUIフレームワークに適切なコンポーネントがない場合は合うデザインにしてください。
+  -製品としてリリースすることを意識したUI/UX/デザインにしてください。
+  -細かい仕様は自身でよいと思うように決めてください。
 
-## Available Scripts
+## 2. フレームワーク選定
 
-In the project directory, you can run:
+- Reactを使用
+- サーバサイドは、node.js/express
 
-### `yarn start`
+## 3.　実装検討
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- rss feedは、[rss-parser](https://github.com/rbren/rss-parser) を使用
+- 要件の"コンポーネントの属性としてRSSのURLと最大表示件数を設定可能"のため、RSSのURLをサーバにリクエストしてfeedを結果として受け取る実装とした。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 4. 実装
 
-### `yarn test`
+### サーバサイド
+- node.js/expressで、apiとして実装
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### フロントエンド
+- React+Chakra ui
