@@ -34,13 +34,11 @@ export const RssFeed = ({
     };
 
     return (
-        <>
-            <FeedList
-                feedSite={feedSite}
-                feedList={feedList}
-                handleReload={reloadFeedList}
-                isLoading={isLoading}
-            />
-        </>
+        <FeedList
+            feedSite={feedSite}
+            feedList={feedList}
+            handleReload={reloadFeedList}
+            isLoading={isLoading}
+        />
     );
 };
